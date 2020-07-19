@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:id="@+id/constraint_layout"
+    android:layout_height="match_parent"
+    android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+    tools:context=".MainActivity">
+
+ <WebView
+     android:id="@+id/webView_container"
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+     app:layout_constraintBottom_toBottomOf="parent"
+     app:layout_constraintEnd_toEndOf="parent"
+     app:layout_constraintStart_toStartOf="parent"
+     app:layout_constraintTop_toTopOf="parent" />
+
+ <FrameLayout
+     android:id="@+id/fragment_container"
+     android:layout_width="0dp"
+     android:layout_height="0dp"
+     android:layout_marginBottom="32dp"
+     app:layout_constraintBottom_toBottomOf="parent"
+     app:layout_constraintEnd_toEndOf="parent"
+     app:layout_constraintStart_toStartOf="parent"
+     app:layout_constraintTop_toTopOf="parent"/>
+ <RelativeLayout
+     android:layout_width="wrap_content"
+     android:id="@+id/relative_layout"
+     android:layout_height="wrap_content"
+     app:layout_constraintBottom_toBottomOf="parent"
+     app:layout_constraintEnd_toEndOf="parent">
+
+  <com.google.android.material.floatingactionbutton.FloatingActionButton
+      android:id="@+id/btn_camera"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="16dp"
+      android:layout_marginTop="16dp"
+      android:layout_marginEnd="16dp"
+      android:layout_marginBottom="16dp"
+      android:backgroundTint="@color/colorPrimary"
+      android:src="@drawable/ic_camera"
+      />
+ </RelativeLayout>
+
+ <CheckBox
+     android:id="@+id/checkBox"
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content"
+     android:layout_marginStart="64dp"
+     android:layout_marginEnd="64dp"
+     android:layout_marginBottom="32dp"
+     android:buttonTint="#84419b"
+     android:checked="false"
+     android:elevation="1dp"
+     android:gravity="center_vertical"
+     android:onClick="rememberLogin"
+     android:text="Zapamti korisničko ime i lozinku"
+     android:textColor="#585c5f"
+     android:textSize="15sp"
+     app:layout_constraintBottom_toBottomOf="parent"
+     app:layout_constraintEnd_toEndOf="parent"
+     app:layout_constraintStart_toStartOf="parent"
+     app:layout_constraintTop_toBottomOf="@+id/webView_container" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
