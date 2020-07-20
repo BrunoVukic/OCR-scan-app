@@ -100,8 +100,7 @@ public class document_scan extends AppCompatActivity implements SurfaceHolder.Ca
         Rect r = colorRect.getRect();	//Pravokutnik koji ima veličinu pravokutnika kao i pravokutnik ružičastih rubova
 
         for (int i = 0; i < sparseArray.size(); i++) {
-            for (int j = 0; j < sparseArray.size(); j++) {
-                TextBlock textBlock = (TextBlock) sparseArray.valueAt(j);
+                TextBlock textBlock = (TextBlock) sparseArray.valueAt(i);
                 for (Text lines : textBlock.getComponents()) {
                     if (lines.getValue().length() >= 30 && lines.getValue().length() <= 44 && (textBlock.getComponents().size() == 3 || textBlock.getComponents().size() == 2)) {
 			//^Provjera velicina bloka u linijama i velicine linije u znakoviam
@@ -138,7 +137,6 @@ public class document_scan extends AppCompatActivity implements SurfaceHolder.Ca
                 }
             }
         }
-    }
 
     public boolean checkData(String[] data) {
         int temp = 0;
