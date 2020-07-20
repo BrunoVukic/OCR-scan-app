@@ -97,16 +97,16 @@ public class document_scan extends AppCompatActivity implements SurfaceHolder.Ca
     @Override
     public void receiveDetections(final Detector.Detections detections) {
         final SparseArray sparseArray = detections.getDetectedItems();
-        Rect r = colorRect.getRect();//Pravokutnik koji ima veličinu pravokutnika kao i pravokutnik ružičastih rubova
+        Rect r = colorRect.getRect();	//Pravokutnik koji ima veličinu pravokutnika kao i pravokutnik ružičastih rubova
 
         for (int i = 0; i < sparseArray.size(); i++) {
             for (int j = 0; j < sparseArray.size(); j++) {
                 TextBlock textBlock = (TextBlock) sparseArray.valueAt(j);
                 for (Text lines : textBlock.getComponents()) {
                     if (lines.getValue().length() >= 30 && lines.getValue().length() <= 44 && (textBlock.getComponents().size() == 3 || textBlock.getComponents().size() == 2)) {
-			//Provjera velicina bloka u linijama i velicine linije u znakoviam
+			//^Provjera velicina bloka u linijama i velicine linije u znakoviam
                         if (r.contains(textBlock.getBoundingBox())) {
-				//spada li skenirani blok u ružičasti okvir
+				//^Spada li skenirani blok u ružičasti okvir
                             if (textBlock.getComponents().size() == 3) {	//Blok ima 3 linije = riječ je o TD1 tipu MRTD-a
                                 Card personData = new Card(this);		//Klasa Card (TD1) u kojoj se skenirani podaci ucitaju u niz string-ova 
                                 personData.getDat(textBlock);
