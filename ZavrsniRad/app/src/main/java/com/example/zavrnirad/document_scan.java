@@ -119,7 +119,7 @@ public class document_scan extends AppCompatActivity implements SurfaceHolder.Ca
                                    break;
                                 }
                             }
-							if (textBlock.getComponents().size() == 2) {
+			    if (textBlock.getComponents().size() == 2) {
                                 Card2 personData = new Card2(this);
                                 personData.getDat(textBlock);
                                 if (checkData(personData.Data)) {
