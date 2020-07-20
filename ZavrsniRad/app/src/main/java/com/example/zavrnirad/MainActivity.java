@@ -299,12 +299,12 @@ public class MainActivity extends AppCompatActivity {
     public void inputData(String val,int x, String js_function) {
         if(js_function==null) {
             js_function = "javascript:{" +
-                    "var x=document.getElementsByTagName('input')[" + x + "];" +
-                    "x.classList.remove('field-changed');"+
-                    "x.value=\" \";"+
-                    "x.value='" + val + "';" +
-                    "x.classList.remove('k-valid');"+
-            "x.className+=\" \"+('k-valid')+\" \"+('field-changed');};";
+                    "var x=document.getElementsByTagName('input')[" + x + "];" + //Pronalazi odgovarajuće "input" polje
+                    "x.classList.remove('field-changed');"+ 			//Brisanje klasa (ako je vec odraden unos ali neuspjesno) 
+                    "x.value=\" \";"+						//"Input" polje se očisti 
+                    "x.value='" + val + "';" +					//Unosi se vrijednost varijable val u polje
+                    "x.classList.remove('k-valid');"+				//Brisanje klasa (ako je vec odraden unos ali neuspjesno)
+            "x.className+=\" \"+('k-valid')+\" \"+('field-changed');};";	//Dodaju se klase koja simuliraju ljudski unos 
         }
             webView.evaluateJavascript(js_function, new ValueCallback<String>() {
                 @Override
