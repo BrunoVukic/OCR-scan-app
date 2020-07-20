@@ -97,30 +97,30 @@ public class document_scan extends AppCompatActivity implements SurfaceHolder.Ca
     @Override
     public void receiveDetections(final Detector.Detections detections) {
         final SparseArray sparseArray = detections.getDetectedItems();
-        Rect r = colorRect.getRect();
+        Rect r = colorRect.getRect();//Pravokutnik koji ima veličinu pravokutnika kao i pravokutnik ružičastih rubova
 
         for (int i = 0; i < sparseArray.size(); i++) {
             for (int j = 0; j < sparseArray.size(); j++) {
                 TextBlock textBlock = (TextBlock) sparseArray.valueAt(j);
                 for (Text lines : textBlock.getComponents()) {
                     if (lines.getValue().length() >= 30 && lines.getValue().length() <= 44 && (textBlock.getComponents().size() == 3 || textBlock.getComponents().size() == 2)) {
-
+			//Provjera velicina bloka u linijama i velicine linije u znakoviam
                         if (r.contains(textBlock.getBoundingBox())) {
-
-                            if (textBlock.getComponents().size() == 3) {
-                                Card personData = new Card(this);
+				//spada li skenirani blok u ružičasti okvir
+                            if (textBlock.getComponents().size() == 3) {	//Blok ima 3 linije = riječ je o TD1 tipu MRTD-a
+                                Card personData = new Card(this);		//Klasa Card (TD1) u kojoj se skenirani podaci ucitaju u niz string-ova 
                                 personData.getDat(textBlock);
-                                if (checkData(personData.Data)) {
+                                if (checkData(personData.Data)) {		//Provjera skeniranih podataka
                                     Intent intent=new Intent();
-                                    intent.putExtra("cardData",personData.Data);
+                                    intent.putExtra("cardData",personData.Data);	//Slanje podataka u klasu glavne aktivnosti (klasu)
                                     setResult(RESULT_OK,intent);
-                                    finish();
+                                    finish();						//Vraćanje u glavnu aktivnost (klasu)
                                 } else {
                                    break;
                                 }
                             }
-			    if (textBlock.getComponents().size() == 2) {
-                                Card2 personData = new Card2(this);
+			    if (textBlock.getComponents().size() == 2) {	//blok ima 2 linije = riječ je o TD2/TD3 tipu MRTD-a
+                                Card2 personData = new Card2(this);		//klasa Card (TD2/TD3) u kojoj se skenirani podaci ucitaju u niz string-ova 
                                 personData.getDat(textBlock);
                                 if (checkData(personData.Data)) {
                                     Intent intent=new Intent();
