@@ -161,7 +161,7 @@ public class document_scan extends AppCompatActivity implements SurfaceHolder.Ca
                     }
                     break;
                 case 2:
-                    if (data[k].matches("^[A-Z0-9\\s]*$")) {
+                    if (data[k].matches("^[A-Z0-9<\\s]*$")) { //Dodaj u regex i da moze bit <
                         temp++;
                     }
                     break;
