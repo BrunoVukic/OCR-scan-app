@@ -97,7 +97,7 @@ public class document_scan extends AppCompatActivity implements SurfaceHolder.Ca
     @Override
     public void receiveDetections(final Detector.Detections detections) {
         final SparseArray sparseArray = detections.getDetectedItems();
-        Rect r = colorRect.getRect();	//Pravokutnik koji ima veličinu pravokutnika kao i pravokutnik ružičastih rubova
+        Rect r = colorRect.getRect();	//Pravokutnik koji ima veličinu kao i pravokutnik ružičastih rubova
 
         for (int i = 0; i < sparseArray.size(); i++) {
                 TextBlock textBlock = (TextBlock) sparseArray.valueAt(i);
